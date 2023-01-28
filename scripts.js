@@ -12,16 +12,16 @@ function getComputerChoice() {
 }
 console.log(getComputerChoice());  
 
-//Get playerSelection from a prompt
-let playerInput = prompt("Choose rock, paper, or scissors", "");
-
-//Make playerSelection case insensitive (change to lowercase)
-let playerSelection = playerInput.toLowerCase();
-console.log(playerSelection);
-
 //Play game in 5 playRound
 let wins = 0;
 let losses = 0;
+
+//Get playerSelection from a prompt
+//Make playerSelection case insensitive (change to lowercase)
+while ((wins < 3) && (losses < 3)) {
+    let playerInput = prompt("Choose rock, paper, or scissors", "");
+    let playerSelection = playerInput.toLowerCase();
+    console.log(playerSelection);
 
 //Compare playerSelection to computerSelection
 //Declare results of the playRound (win or loss) for whatever combination occurred
@@ -53,5 +53,6 @@ if (playerSelection === computerSelection) {
 //Display the results of each playRound
 console.log(wins + " wins");
 console.log(losses + " losses");
+}
 
 //Declare player as a winner or loser of the game at the end of 5 playRound
