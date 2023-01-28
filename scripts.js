@@ -56,3 +56,10 @@ console.log(losses + " losses");
 }
 
 //Declare player as a winner or loser of the game at the end of 5 playRound
+if (wins === 3) {
+    console.log("You've won the game! Way to show that computer who's boss.");
+} else if (losses === 3) {
+    console.log("You've lost the game! Better luck next time.");
+} else {
+    console.log("Keep playing! You've got this.")
+}
