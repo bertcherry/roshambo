@@ -1,4 +1,16 @@
 //getComputerChoice to randomly return rock, paper, or scissors as computerSelection
+function getComputerChoice() {
+    let computerChoice = Math.floor(Math.random() * 3);
+    console.log(computerChoice);
+    if (computerChoice == 0) {
+        return computerSelection = "rock"; 
+    } else if (computerChoice == 1) {
+        return computerSelection = "paper";
+     } else {
+        return computerSelection = "scissors";
+     }
+}
+console.log(getComputerChoice());  
 //Get playerSelection from a prompt
 //Make playerSelection case insensitive (change to lowercase)
 //Compare playerSelection to computerSelection
