@@ -3,19 +3,7 @@ let wins = 0;
 let losses = 0;
 
 while ((wins < 3) && (losses < 3)) {
-//getComputerChoice to randomly return rock, paper, or scissors as computerSelection
-    function getComputerChoice() {
-        let computerChoice = Math.floor(Math.random() * 3);
-        console.log(computerChoice);
-        if (computerChoice == 0) {
-            return computerSelection = "rock"; 
-        } else if (computerChoice == 1) {
-            return computerSelection = "paper";
-        } else {
-            return computerSelection = "scissors";
-        }
-    }
-    console.log(getComputerChoice());  
+
 
 //Compare playerSelection to computerSelection
 //Declare results of the playRound (win or loss) for whatever combination occurred
@@ -62,6 +50,19 @@ function getPlayerChoice() {
     playerSelection = playerSelection.toLowerCase();
     return playerSelection;
 }
+
+//getComputerChoice to randomly return rock, paper, or scissors as computerSelection
+function getComputerChoice() {
+    let computerChoice = Math.floor(Math.random() * 3);
+    console.log(computerChoice);
+    if (computerChoice == 0) {
+        return computerSelection = "rock"; 
+    } else if (computerChoice == 1) {
+        return computerSelection = "paper";
+    } else {
+        return computerSelection = "scissors";
+    }
+} 
 
 //Display the results of each playRound
     console.log(wins + " wins");
