@@ -26,6 +26,26 @@ function game() {
     }
 }
 
+//Get playerSelection from a prompt
+//Make playerSelection case insensitive (change to lowercase)
+function getPlayerChoice() {
+    let playerSelection = prompt("Choose rock, paper, or scissors", "");
+    playerSelection = playerSelection.toLowerCase();
+    return playerSelection;
+}
+
+//getComputerChoice to randomly return rock, paper, or scissors as computerSelection
+function getComputerChoice() {
+    let computerChoice = Math.floor(Math.random() * 3);
+    if (computerChoice == 0) {
+        return computerSelection = "rock"; 
+    } else if (computerChoice == 1) {
+        return computerSelection = "paper";
+    } else {
+        return computerSelection = "scissors";
+    }
+} 
+
 //Compare playerSelection to computerSelection
 //Declare results of the playRound (win or loss) for whatever combination occurred
 function playRound(playerSelection, computerSelection) {
@@ -63,25 +83,5 @@ function recordResult(roundResult) {
     } else {
     }
 }
-
-//Get playerSelection from a prompt
-//Make playerSelection case insensitive (change to lowercase)
-function getPlayerChoice() {
-    let playerSelection = prompt("Choose rock, paper, or scissors", "");
-    playerSelection = playerSelection.toLowerCase();
-    return playerSelection;
-}
-
-//getComputerChoice to randomly return rock, paper, or scissors as computerSelection
-function getComputerChoice() {
-    let computerChoice = Math.floor(Math.random() * 3);
-    if (computerChoice == 0) {
-        return computerSelection = "rock"; 
-    } else if (computerChoice == 1) {
-        return computerSelection = "paper";
-    } else {
-        return computerSelection = "scissors";
-    }
-} 
 
 game();
