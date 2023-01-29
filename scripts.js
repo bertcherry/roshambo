@@ -2,8 +2,28 @@
 let wins = 0;
 let losses = 0;
 
-while ((wins < 3) && (losses < 3)) {
-
+function game() {
+    let rounds = 0;
+    while ((wins < 3) && (losses < 3)) {
+        console.log("Round " + rounds + ", begin!");
+        let playerSelection = getPlayerChoice(); 
+        let computerSelection = getComputerChoice();
+        let roundResult = playRound(playerSelection, computerSelection);
+        recordResult(roundResult);
+//Declare player as a winner or loser of the game at the end of 5 playRound
+        if (wins === 3) {
+            console.log("You've won the game! Way to show that computer who's boss.");
+        } else if (losses === 3) {
+            console.log("You've lost the game! Better luck next time.");
+        } else {
+            console.log("Keep playing! You've got this.")
+        }
+        rounds++;
+        console.log("Game score: after " + rounds + " rounds , we have " +
+        wins + " human wins and " +
+        losses + " computer wins");
+    }
+}
 
 //Compare playerSelection to computerSelection
 //Declare results of the playRound (win or loss) for whatever combination occurred
@@ -64,16 +84,4 @@ function getComputerChoice() {
     }
 } 
 
-//Display the results of each playRound
-    console.log(wins + " wins");
-    console.log(losses + " losses");
-}
-
-//Declare player as a winner or loser of the game at the end of 5 playRound
-if (wins === 3) {
-    console.log("You've won the game! Way to show that computer who's boss.");
-} else if (losses === 3) {
-    console.log("You've lost the game! Better luck next time.");
-} else {
-    console.log("Keep playing! You've got this.")
-}
+game();
