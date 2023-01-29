@@ -19,9 +19,10 @@ function game() {
             console.log("Keep playing! You've got this.")
         }
         rounds++;
-        console.log("Game score: after " + rounds + " rounds , we have " +
-        wins + " human wins and " +
-        losses + " computer wins");
+        console.log("Game score: after " +
+            rounds + " rounds , we have " +
+            wins + " human wins and " +
+            losses + " computer wins");
     }
 }
 
@@ -74,7 +75,6 @@ function getPlayerChoice() {
 //getComputerChoice to randomly return rock, paper, or scissors as computerSelection
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
-    console.log(computerChoice);
     if (computerChoice == 0) {
         return computerSelection = "rock"; 
     } else if (computerChoice == 1) {
