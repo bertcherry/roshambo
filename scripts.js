@@ -52,7 +52,14 @@ function playRound(playerSelection, computerSelection) {
 }
 
 //Record win or loss for the player for the round
-
+function recordResult(roundResult) {
+    if (roundResult === "win") {
+        wins++;
+    } else if (roundResult === "loss") {
+        losses++;
+    } else {
+    }
+}
 
 //Display the results of each playRound
     console.log(wins + " wins");
