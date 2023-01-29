@@ -3,12 +3,6 @@ let wins = 0;
 let losses = 0;
 
 while ((wins < 3) && (losses < 3)) {
-//Get playerSelection from a prompt
-//Make playerSelection case insensitive (change to lowercase)
-    let playerInput = prompt("Choose rock, paper, or scissors", "");
-    let playerSelection = playerInput.toLowerCase();
-    console.log(playerSelection);
-
 //getComputerChoice to randomly return rock, paper, or scissors as computerSelection
     function getComputerChoice() {
         let computerChoice = Math.floor(Math.random() * 3);
@@ -59,6 +53,14 @@ function recordResult(roundResult) {
         losses++;
     } else {
     }
+}
+
+//Get playerSelection from a prompt
+//Make playerSelection case insensitive (change to lowercase)
+function getPlayerChoice() {
+    let playerSelection = prompt("Choose rock, paper, or scissors", "");
+    playerSelection = playerSelection.toLowerCase();
+    return playerSelection;
 }
 
 //Display the results of each playRound
