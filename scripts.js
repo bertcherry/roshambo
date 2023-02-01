@@ -6,7 +6,7 @@ function game() {
     let rounds = 0;
     while ((wins < 3) && (losses < 3)) {
         console.log("Round " + rounds + ", begin!");
-        let playerSelection = getPlayerChoice(); 
+        //let playerSelection = getPlayerChoice(); 
         let computerSelection = getComputerChoice();
         let roundResult = playRound(playerSelection, computerSelection);
         recordResult(roundResult);
@@ -28,11 +28,11 @@ function game() {
 
 //Get playerSelection from a prompt
 //Make playerSelection case insensitive (change to lowercase)
-function getPlayerChoice() {
-    let playerSelection = prompt("Choose rock, paper, or scissors", "");
-    playerSelection = playerSelection.toLowerCase();
-    return playerSelection;
-}
+//function getPlayerChoice() {
+    //let playerSelection = prompt("Choose rock, paper, or scissors", "");
+    //playerSelection = playerSelection.toLowerCase();
+    //return playerSelection;
+//}
 
 //getComputerChoice to randomly return rock, paper, or scissors as computerSelection
 function getComputerChoice() {
@@ -45,6 +45,23 @@ function getComputerChoice() {
         return computerSelection = "scissors";
     }
 } 
+
+const buttons = document.querySelectorAll("button");
+
+function handleButtonClick(e) {
+    let computerSelection = getComputerChoice();
+    let playerSelection = e.target.id;
+    playRound(playerSelection, computerSelection);
+}
+
+buttons.forEach((button) => {
+    button.addEventListener("click", handleButtonClick)
+});
+
+//function getPlayerChoice(e) {
+//    const playerSelection = e.target.getAttribute("id");
+//    console.log(playerSelection);
+//}
 
 //Compare playerSelection to computerSelection
 //Declare results of the playRound (win or loss) for whatever combination occurred
@@ -74,6 +91,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+
 //Record win or loss for the player for the round
 function recordResult(roundResult) {
     if (roundResult === "win") {
@@ -84,4 +102,7 @@ function recordResult(roundResult) {
     }
 }
 
-game();
+//Run playRound function on button click
+
+
+//game();
