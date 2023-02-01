@@ -26,14 +26,6 @@ function game() {
     }
 }
 
-//Get playerSelection from a prompt
-//Make playerSelection case insensitive (change to lowercase)
-//function getPlayerChoice() {
-    //let playerSelection = prompt("Choose rock, paper, or scissors", "");
-    //playerSelection = playerSelection.toLowerCase();
-    //return playerSelection;
-//}
-
 //getComputerChoice to randomly return rock, paper, or scissors as computerSelection
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
@@ -46,6 +38,7 @@ function getComputerChoice() {
     }
 } 
 
+//Event listeners on buttons prompt playRound according to button id as playerSelection
 const buttons = document.querySelectorAll("button");
 
 function handleButtonClick(e) {
@@ -57,11 +50,6 @@ function handleButtonClick(e) {
 buttons.forEach((button) => {
     button.addEventListener("click", handleButtonClick)
 });
-
-//function getPlayerChoice(e) {
-//    const playerSelection = e.target.getAttribute("id");
-//    console.log(playerSelection);
-//}
 
 //Compare playerSelection to computerSelection
 //Declare results of the playRound (win or loss) for whatever combination occurred
@@ -91,7 +79,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-
 //Record win or loss for the player for the round
 function recordResult(roundResult) {
     if (roundResult === "win") {
@@ -101,8 +88,6 @@ function recordResult(roundResult) {
     } else {
     }
 }
-
-//Run playRound function on button click
 
 
 //game();
