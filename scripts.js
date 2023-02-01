@@ -6,7 +6,7 @@ function game() {
     let rounds = 0;
     while ((wins < 3) && (losses < 3)) {
         console.log("Round " + rounds + ", begin!");
-        //let playerSelection = getPlayerChoice(); 
+        let playerSelection = getPlayerChoice(); 
         let computerSelection = getComputerChoice();
         let roundResult = playRound(playerSelection, computerSelection);
         recordResult(roundResult);
@@ -40,6 +40,7 @@ function getComputerChoice() {
 
 //Event listeners on buttons prompt playRound according to button id as playerSelection
 const buttons = document.querySelectorAll("button");
+const results = document.querySelector(".results");
 
 function handleButtonClick(e) {
     let computerSelection = getComputerChoice();
@@ -55,27 +56,27 @@ buttons.forEach((button) => {
 //Declare results of the playRound (win or loss) for whatever combination occurred
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        console.log("It's a tie!");
+        results.textContent = "It's a tie!";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        console.log("You lose! Paper covers rock.");
+        results.textContent = "You lose! Paper covers rock.";
         return roundResult = "loss";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        console.log("You win! Rock crushes scissors.");
+        results.textContent = "You win! Rock crushes scissors.";
         return roundResult = "win";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        console.log("You lose! Scissors cut paper.");
+        results.textContent = "You lose! Scissors cut paper.";
         return roundResult = "loss";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        console.log("You win! Paper covers rock.");
+        results.textContent = "You win! Paper covers rock.";
         return roundResult = "win";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        console.log("You lose! Rock crushes scissors.");
+        results.textContent = "You lose! Rock crushes scissors.";
         return roundResult = "loss";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        console.log("You win! Scissors cut paper.");
+        results.textContent = "You win! Scissors cut paper.";
         return roundResult = "win";
     } else {
-        console.log("Hmm...are you sure you picked rock, paper, or scissors?");
+        results.textContent = "Hmm...are you sure you picked rock, paper, or scissors?";
     }
 }
 
@@ -88,6 +89,5 @@ function recordResult(roundResult) {
     } else {
     }
 }
-
 
 //game();
