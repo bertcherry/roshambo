@@ -13,29 +13,40 @@ function getComputerChoice() {
 //Event listeners on buttons prompt playRound according to button id as playerSelection
 const buttons = document.querySelectorAll("button");
 const results = document.querySelector(".results");
+const container = document.querySelector(".container");
+const playerButtons = document.querySelector(".player-buttons");
+const gameTally = document.querySelector(".game-tally");
+
+let wins = 0;
+let losses = 0;
+let rounds = 0;
 
 function handleButtonClick(e) {
     let computerSelection = getComputerChoice();
     let playerSelection = e.target.id;
     playRound(playerSelection, computerSelection);
-    let rounds = 0;
-    while ((wins < 5) && (losses < 5)) {
-        let roundResult = playRound(playerSelection, computerSelection);
-        recordResult(roundResult);
+    let roundResult = playRound(playerSelection, computerSelection);
+    recordResult(roundResult);
+    gameScore();
+}
+
 //Declare winner after one of them reaches 5
-        if (wins === 5) {
-            console.log("You've won the game! Way to show that computer who's boss.");
-        } else if (losses === 5) {
-            console.log("You've lost the game! Better luck next time.");
-        } else {
-            console.log("Keep playing! You've got this.")
-        }
-        rounds++;
-        console.log("Game score: after " +
-            rounds + " rounds , we have " +
-            wins + " human wins and " +
-            losses + " computer wins");
+function gameScore() {
+    rounds++;
+    gameTally.textContent = "Game score: after " +
+        rounds + " rounds, we have " +
+        wins + " human wins and " +
+        losses + " computer wins.";
+    if (wins === 5) {
+        gameTally.textContent += "\nYou've won the game! Way to show that computer who's boss.";
+        container.removeChild(playerButtons);
+    } else if (losses === 5) {
+        gameTally.textContent += "\nYou've lost the game! Better luck next time.";
+        container.removeChild(playerButtons);
+    } else {
+        gameTally.textContent += "\nKeep playing! You've got this.";
     }
+
 }
 
 buttons.forEach((button) => {
@@ -81,8 +92,7 @@ function recordResult(roundResult) {
 }
 
 //Play game in 5 playRound
-let wins = 0;
-let losses = 0;
+
 
 //function game() {
   //  let rounds = 0;
