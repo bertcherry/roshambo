@@ -1,31 +1,3 @@
-//Play game in 5 playRound
-let wins = 0;
-let losses = 0;
-
-function game() {
-    let rounds = 0;
-    while ((wins < 3) && (losses < 3)) {
-        console.log("Round " + rounds + ", begin!");
-        let playerSelection = getPlayerChoice(); 
-        let computerSelection = getComputerChoice();
-        let roundResult = playRound(playerSelection, computerSelection);
-        recordResult(roundResult);
-//Declare player as a winner or loser of the game at the end of 5 playRound
-        if (wins === 3) {
-            console.log("You've won the game! Way to show that computer who's boss.");
-        } else if (losses === 3) {
-            console.log("You've lost the game! Better luck next time.");
-        } else {
-            console.log("Keep playing! You've got this.")
-        }
-        rounds++;
-        console.log("Game score: after " +
-            rounds + " rounds , we have " +
-            wins + " human wins and " +
-            losses + " computer wins");
-    }
-}
-
 //getComputerChoice to randomly return rock, paper, or scissors as computerSelection
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
@@ -46,6 +18,24 @@ function handleButtonClick(e) {
     let computerSelection = getComputerChoice();
     let playerSelection = e.target.id;
     playRound(playerSelection, computerSelection);
+    let rounds = 0;
+    while ((wins < 5) && (losses < 5)) {
+        let roundResult = playRound(playerSelection, computerSelection);
+        recordResult(roundResult);
+//Declare winner after one of them reaches 5
+        if (wins === 5) {
+            console.log("You've won the game! Way to show that computer who's boss.");
+        } else if (losses === 5) {
+            console.log("You've lost the game! Better luck next time.");
+        } else {
+            console.log("Keep playing! You've got this.")
+        }
+        rounds++;
+        console.log("Game score: after " +
+            rounds + " rounds , we have " +
+            wins + " human wins and " +
+            losses + " computer wins");
+    }
 }
 
 buttons.forEach((button) => {
@@ -90,4 +80,31 @@ function recordResult(roundResult) {
     }
 }
 
+//Play game in 5 playRound
+let wins = 0;
+let losses = 0;
+
+//function game() {
+  //  let rounds = 0;
+    //while ((wins < 5) && (losses < 5)) {
+      //  console.log("Round " + rounds + ", begin!");
+        //let playerSelection = getPlayerChoice(); 
+        //let computerSelection = getComputerChoice();
+        //let roundResult = playRound(playerSelection, computerSelection);
+        //recordResult(roundResult);
+//Declare player as a winner or loser of the game at the end of 5 playRound
+        //if (wins === 5) {
+        //    console.log("You've won the game! Way to show that computer who's boss.");
+        //} else if (losses === 5) {
+        //    console.log("You've lost the game! Better luck next time.");
+        //} else {
+        //    console.log("Keep playing! You've got this.")
+        //}
+        //rounds++;
+        //console.log("Game score: after " +
+        //    rounds + " rounds , we have " +
+        //    wins + " human wins and " +
+        //   losses + " computer wins");
+    //}
+//}
 //game();
