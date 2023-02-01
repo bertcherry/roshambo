@@ -1,3 +1,20 @@
+//Define objects in memory
+const buttons = document.querySelectorAll("button");
+const results = document.querySelector(".results");
+const container = document.querySelector(".container");
+const playerButtons = document.querySelector(".player-buttons");
+const gameTally = document.querySelector(".game-tally");
+
+//Respond to button click by grabbing computerSelection, run playRound, and report result to gameScore
+function handleButtonClick(e) {
+    let computerSelection = getComputerChoice();
+    let playerSelection = e.target.id;
+    playRound(playerSelection, computerSelection);
+    let roundResult = playRound(playerSelection, computerSelection);
+    recordResult(roundResult);
+    gameScore();
+}
+
 //getComputerChoice to randomly return rock, paper, or scissors as computerSelection
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
@@ -9,49 +26,6 @@ function getComputerChoice() {
         return computerSelection = "scissors";
     }
 } 
-
-//Event listeners on buttons prompt playRound according to button id as playerSelection
-const buttons = document.querySelectorAll("button");
-const results = document.querySelector(".results");
-const container = document.querySelector(".container");
-const playerButtons = document.querySelector(".player-buttons");
-const gameTally = document.querySelector(".game-tally");
-
-let wins = 0;
-let losses = 0;
-let rounds = 0;
-
-function handleButtonClick(e) {
-    let computerSelection = getComputerChoice();
-    let playerSelection = e.target.id;
-    playRound(playerSelection, computerSelection);
-    let roundResult = playRound(playerSelection, computerSelection);
-    recordResult(roundResult);
-    gameScore();
-}
-
-//Declare winner after one of them reaches 5
-function gameScore() {
-    rounds++;
-    gameTally.textContent = "Game score: after " +
-        rounds + " rounds, we have " +
-        wins + " human wins and " +
-        losses + " computer wins.";
-    if (wins === 5) {
-        gameTally.textContent += "\nYou've won the game! Way to show that computer who's boss.";
-        container.removeChild(playerButtons);
-    } else if (losses === 5) {
-        gameTally.textContent += "\nYou've lost the game! Better luck next time.";
-        container.removeChild(playerButtons);
-    } else {
-        gameTally.textContent += "\nKeep playing! You've got this.";
-    }
-
-}
-
-buttons.forEach((button) => {
-    button.addEventListener("click", handleButtonClick)
-});
 
 //Compare playerSelection to computerSelection
 //Declare results of the playRound (win or loss) for whatever combination occurred
@@ -91,30 +65,30 @@ function recordResult(roundResult) {
     }
 }
 
-//Play game in 5 playRound
+//Set beginning condition for gameScore
+let wins = 0;
+let losses = 0;
+let rounds = 0;
 
+//Display game score, display winner after one reaches 5 and remove play buttons
+function gameScore() {
+    rounds++;
+    gameTally.textContent = "Game score: after " +
+        rounds + " rounds, we have " +
+        wins + " human wins and " +
+        losses + " computer wins.";
+    if (wins === 5) {
+        gameTally.textContent += "\nYou've won the game! Way to show that computer who's boss.";
+        container.removeChild(playerButtons);
+    } else if (losses === 5) {
+        gameTally.textContent += "\nYou've lost the game! Better luck next time.";
+        container.removeChild(playerButtons);
+    } else {
+        gameTally.textContent += "\nKeep playing! You've got this.";
+    }
+}
 
-//function game() {
-  //  let rounds = 0;
-    //while ((wins < 5) && (losses < 5)) {
-      //  console.log("Round " + rounds + ", begin!");
-        //let playerSelection = getPlayerChoice(); 
-        //let computerSelection = getComputerChoice();
-        //let roundResult = playRound(playerSelection, computerSelection);
-        //recordResult(roundResult);
-//Declare player as a winner or loser of the game at the end of 5 playRound
-        //if (wins === 5) {
-        //    console.log("You've won the game! Way to show that computer who's boss.");
-        //} else if (losses === 5) {
-        //    console.log("You've lost the game! Better luck next time.");
-        //} else {
-        //    console.log("Keep playing! You've got this.")
-        //}
-        //rounds++;
-        //console.log("Game score: after " +
-        //    rounds + " rounds , we have " +
-        //    wins + " human wins and " +
-        //   losses + " computer wins");
-    //}
-//}
-//game();
+//Event listeners on buttons prompt playRound according to button id as playerSelection
+buttons.forEach((button) => {
+    button.addEventListener("click", handleButtonClick)
+});
