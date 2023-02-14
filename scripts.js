@@ -1,14 +1,15 @@
 //Define objects in memory
-const buttons = document.querySelectorAll("button");
 const results = document.querySelector(".results");
 const container = document.querySelector(".container");
 const playerButtons = document.querySelector(".player-buttons");
+const buttons = playerButtons.querySelectorAll("button");
 const gameTally = document.querySelector(".game-tally");
 
 //Respond to button click by grabbing computerSelection, run playRound, and report result to gameScore
 function handleButtonClick(e) {
     let computerSelection = getComputerChoice();
-    let playerSelection = e.target.id;
+    let playerSelection = this.id;
+    console.log(playerSelection);
     playRound(playerSelection, computerSelection);
     let roundResult = playRound(playerSelection, computerSelection);
     recordResult(roundResult);
@@ -90,5 +91,5 @@ function gameScore() {
 
 //Event listeners on buttons prompt playRound according to button id as playerSelection
 buttons.forEach((button) => {
-    button.addEventListener("click", handleButtonClick)
+    button.addEventListener("click", handleButtonClick);
 });
