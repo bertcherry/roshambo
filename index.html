@@ -4,14 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock, Paper, Scissors!</title>
 </head>
 <body>
     <div class="container">
+        <div class="info">
+            <h1>Roshambo</h1>
+            <div class="instructions">
+                Can you defeat the computer at this classic game? Make your selection, and may the odds be in your favor!
+            </div>
+        </div>
         <div class="player-buttons">
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissors">Scissors</button>
+            <button id="rock">
+                <img class="button-image" src="images/rock.png">
+                <div class="button-text">Rock</div>
+            </button>
+            <button id="paper">
+                <img class="button-image" src="images/paper.png">
+                <div class="button-text">Paper</div>
+            </button>
+            <button id="scissors">
+                <img class="button-image" src="images/scissors.png">
+                <div class="button-text">Scissors</div>
+            </button>
         </div>
         <div class="results"></div>
         <div class="game-tally"></div>
