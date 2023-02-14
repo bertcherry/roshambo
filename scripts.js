@@ -4,6 +4,8 @@ const container = document.querySelector(".container");
 const playerButtons = document.querySelector(".player-buttons");
 const buttons = playerButtons.querySelectorAll("button");
 const gameTally = document.querySelector(".game-tally");
+const info = document.querySelector(".info");
+const instructions = document.querySelector(".instructions");
 
 //Respond to button click by grabbing computerSelection, run playRound, and report result to gameScore
 function handleButtonClick(e) {
@@ -81,9 +83,11 @@ function gameScore() {
     if (wins === 5) {
         gameTally.textContent += "\nYou've won the game! Way to show that computer who's boss.";
         container.removeChild(playerButtons);
+        info.removeChild(instructions);
     } else if (losses === 5) {
         gameTally.textContent += "\nYou've lost the game! Better luck next time.";
         container.removeChild(playerButtons);
+        info.removeChild(instructions);
     } else {
         gameTally.textContent += "\nKeep playing! You've got this.";
     }
