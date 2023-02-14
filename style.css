@@ -1,14 +1,22 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #ffc8bf;
 }
 
-.info {
+.container {
+    margin: 0px 50px;
+}
+
+.info,
+.output {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 20px;
 }
 
 .instructions{
@@ -17,21 +25,36 @@ body {
 
 .player-buttons {
     display: flex;
-    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 button {
-    padding: 40px;
+    padding: 20px;
     border: solid 2px black;
     border-radius: 8px;
+    background-color: #7fffd4;
+    flex: 0 1 30%;
+}
+
+button:hover {
+    background-color: #5f9ea0;
 }
 
 .button-image {
-    max-height: 300px;
+    max-height: 100px;
+    width: 100%;
+    object-fit: contain;
 }
 
 .button-text {
     font-size: 2rem;
     font-weight: 500;
     margin-top: 20px;
+}
+
+.results {
+    font-weight: 700;
+    margin-bottom: 10px;
 }
