@@ -8,10 +8,9 @@ const info = document.querySelector(".info");
 const instructions = document.querySelector(".instructions");
 
 //Respond to button click by grabbing computerSelection, run playRound, and report result to gameScore
-function handleButtonClick(e) {
+function handleButtonClick() {
     let computerSelection = getComputerChoice();
     let playerSelection = this.id;
-    console.log(playerSelection);
     playRound(playerSelection, computerSelection);
     let roundResult = playRound(playerSelection, computerSelection);
     recordResult(roundResult);
